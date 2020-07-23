@@ -3,13 +3,15 @@ const Schema = mongoose.Schema;
 
 const parkSchema = new Schema(
     {
-        park_name: { type: String, required: true },
-        park_description: { type: String, required: true },
-        park_address: { type: String, required: true },
-        park_playground: { type: String, default: "No", required: true },
-        park_toilets: { type: String, default: "No", required: true },
-        park_exerciseFacilities: { type: String, default: "No", required: true },
-        park_petsAllowed: { type: String, default: "No", required: true },
+        name: { type: String, required: true },
+        description: { type: String, required: true },
+        streetAddress: { type: String, required: true },
+        city: { type: String, required: true },
+        state: { type: String, required: true },
+        playground: { type: Boolean, default: false, required: true },
+        toilets: { type: Boolean, default: false, required: true },
+        exerciseFacilities: { type: Boolean, default: false, required: true },
+        petsAllowed: { type: Boolean, default: false, required: true },
         user_id: { type: Schema.Types.ObjectId, ref: "User" }
     },
     { timestamps: true }
