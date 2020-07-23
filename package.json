@@ -10,7 +10,8 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "seed": "cd database/seeds && node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +21,8 @@
   },
   "dependencies": {
     "express": "^4.16.3",
-    "if-env": "^1.0.4"
+    "faker": "^4.1.0",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.9.25"
   }
 }
