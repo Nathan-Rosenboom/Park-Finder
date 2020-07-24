@@ -1,16 +1,14 @@
 const faker = require("faker");
 const Park = require("../../models/Park");
 const User = require("../../models/User");
+const randomModel = require("./utils/randomModel");
 
 async function seedData() {
   Park.collection.deleteMany();
 
   for (let index = 0; index < 10; index++) {
 
-    const count = await User.count({});
-    const random = Math.floor(Math.random()) * count;
-
-    const randomUser = (await User.find({}))[random];
+    const randomUser = await randomModel("User");
 
     const park = new Park({
       name: faker.lorem.words(),

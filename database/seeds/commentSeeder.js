@@ -2,23 +2,18 @@ const faker = require("faker");
 const Comment = require("../../models/Comment");
 const Park = require("../../models/Park");
 const User = require("../../models/User");
+const randomModel = require("./utils/randomModel");
 
 async function seedData() {
   Comment.collection.deleteMany();
 
   for (let index = 0; index < 10; index++) {
 
-    const userCount = await User.count({});
-    const random = Math.floor(Math.random()) * userCount;
-    const randomUser = (await User.find({}))[random];
-
-    const parkCount = await Park.count({});
-    const random2 = Math.floor(Math.random()) * parkCount;
-    const randomPark = (await User.find({}))[random2];
+    const randomUser =  await randomModel("User");
+    const randomPark = await randomModel("Park");
 
     const comment = new Comment({
-      title: faker.lorem.words(),
-      body: faker.lorem.sentence(),
+      body: faker.lorem.paragraph(),
       user_id: randomUser._id,
       park_id: randomPark._id
 
