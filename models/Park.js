@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const Comment = require("./Comment");
 
 const parkSchema = new Schema(
     {
@@ -14,8 +15,15 @@ const parkSchema = new Schema(
         petsAllowed: { type: Boolean, default: false, required: true },
         user_id: { type: Schema.Types.ObjectId, ref: "User" }
     },
-    { timestamps: true }
+    { timestamps: true, toJSON: { virtuals: true } }
 );
+
+parkSchema.virtual('user', {
+    ref: "User",
+    localField: 'user_id',
+    foreignField: '_id',
+    justOne: true
+});
 
 const Park = mongoose.model("Park", parkSchema);
 

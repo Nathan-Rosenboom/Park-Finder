@@ -7,8 +7,24 @@ const commentSchema = new Schema(
         user_id: { type: Schema.Types.ObjectId, ref: "User" },
         park_id: { type: Schema.Types.ObjectId, ref: "Park" },
     },
-    { timestamps: true }
+    { timestamps: true, toJSON: {
+        virtuals: true
+    } }
 );
+
+commentSchema.virtual("user", {
+    ref: "User",
+    localField: "user_id",
+    foreignField: "_id",
+    justOne: true,
+});
+
+commentSchema.virtual("park", {
+    ref: "Park",
+    localField: "park_id",
+    foreignField: "_id",
+    justOne: true,
+});
 
 const Comment = mongoose.model("Comment", commentSchema);
 
