@@ -14,15 +14,22 @@ const userSchema = new Schema(
 userSchema.pre('save', async function save(next) {
     const user = this;
     if (!user.isModified('password')) { return next(); }
-    bcrypt.genSalt(10, (err, salt) => {
-        if (err) { return next(err); }
-        bcrypt.hash(user.password, salt, (err, hash) => {
-            if (err) { return next(err); }
-            user.password = hash;
-            next();
-        });
+    bcrypt.genSalt(10, (err, salt) => {}).then((salt) => {
+        return bcrypt.hash(user.password, salt);
+    }).then((hash) => {
+        user.password = hash;
+        next();
+    }).catch((err) => {
+        return next(err);
     });
 });
+
+userSchema.methods.comparePassword = function comparePassword(candidatePassword, cb) {
+    bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
+        cb(err, isMatch);
+    });
+};
+
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
