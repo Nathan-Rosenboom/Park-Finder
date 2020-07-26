@@ -1,5 +1,9 @@
 const express = require("express");
-
+const session = require("express-session");
+const passport = require("passport");
+const dotenv = require("dotenv");
+const MongoStore = require("connect-mongo")(session);
+dotenv.config({ path: ".env" });
 const routes = require("./routes");
 const app = express();
 const connectDb = require("./config/database");
@@ -15,6 +19,22 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 connectDb();
+
+app.use(
+  session({
+    resave: true,
+    saveUninitialized: true,
+    secret: process.env.SESSION_SECRET,
+    cookie: { maxAge: 1209600000 },
+    store: new MongoStore({
+      url: process.env.MONGODB_URI,
+      autoReconnect: true,
+    }),
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 // Define API routes here
 app.use(routes);
 // Send every other request to the React app
