@@ -1,11 +1,11 @@
 module.exports = (req, res, next) => {
-    if (req.user) {
+    if (req.isAuthenticated) {
         next()
     } else {
-        res.json({
-            data: {
-                error: "Please login"
-            }
+        res.status(401).json({
+            errors: [{
+                msg: "Please log in"
+            }]
         })
     }
 }
