@@ -13,13 +13,13 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-    User.findOne({ email: email.toLowerCase() }, (err, user) => {
+    User.findOne({ email }, (err, user) => {
         if (err) { return done(err); }
         if (!user) {
             return done(null, false, { msg: `Email ${email} not found.` });
         }
         if (!user.password) {
-            return done(null, false, { msg: 'Your account was registered using a sign-in provided' });
+            return done(null, false, { msg: 'Please enter your password' });
         }
         user.comparePassword(password, (err, isMatch) => {
             if (err) { return done(err); }
@@ -30,3 +30,5 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
         });
     });
 }));
+
+module.exports = passport;
