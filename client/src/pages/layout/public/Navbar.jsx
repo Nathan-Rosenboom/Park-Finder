@@ -9,7 +9,6 @@ function Navigation(props) {
     <Nav className="mr-auto">
       <Nav.Link href="#home">Login</Nav.Link>
       <Nav.Link href="#features">Register</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
     </Nav>
   </Navbar>
     )
