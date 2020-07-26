@@ -4,8 +4,6 @@ const user = require("./api/userRoutes");
 const park = require("./api/parkRoutes");
 const comment = require("./api/comment Routes");
 const isAuthenticated = require("../middleware/authenticationMiddleware");
-
-
 const router = express.Router()
 
 router.use(auth);
