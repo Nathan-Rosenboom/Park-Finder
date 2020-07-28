@@ -9,26 +9,19 @@ import "./Login.css";
 function LoginForm() {
   const history = useHistory();
 
-  const [errors, setErrors] = useState([]);
-
   const [payload, setPayload] = useState({});
 
   const handleChange = async (event) => {
       const type = event.target.name;
 
-      // payload looks like: {
-      //     email: '',
-      //     password: '',
-      // }
       setPayload({
           ...payload,
-          [type]: event.target.value, // dynamically set the type of payload
+          [type]: event.target.value,
       });
   };
 
   const handleSubmit = async (event) => {
       event.preventDefault();
-      // call api to login
 
       const response = await axios
           .post(
@@ -45,17 +38,7 @@ function LoginForm() {
               history.push("/parks");
           })
           .catch((err) => {
-              // not authenticated
-              console.log(err.response);
-              if (err.response.data.errors) {
-                  const errorMsg = err.response.data.errors.map(
-                      (err) => err.msg
-                  );
-                  // failed to register
-                  setErrors([...errorMsg]);
-              } else {
-                  setErrors(['Whoops please enter your credentials']);
-              }
+              console.log(err);
           });
   };
 
