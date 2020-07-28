@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import GlobalStore from "./utils/GlobalStore";
+import "./App.css";
 
 import Home from "./pages/Home";
 //import Register from "./pages/Register";
