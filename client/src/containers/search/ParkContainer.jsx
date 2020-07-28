@@ -24,7 +24,7 @@ function ParkContainer(props) {
         }, [])
     return (
         <div className="park">
-        <Card>
+        <Card bsPrefix="mainCard">
             <Card.Title>Parks</Card.Title>
             {parks.map((park, index) => (
                     <ParkItem className="parkItem"

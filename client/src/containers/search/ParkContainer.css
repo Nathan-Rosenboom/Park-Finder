@@ -1,4 +1,10 @@
 .park {
     margin-top: 10px;
+    width: 75vw;
+}
+
+.mainCard {
+    background-color: rgb(65, 65, 65);
+    
 }
 
