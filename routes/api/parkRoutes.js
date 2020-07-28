@@ -71,7 +71,7 @@ router.post("/parks", (req, res) => {
         res.json({
             data: created,
         });
-    });
+    }).catch(err);
 });
 
 router.patch("/parks/:id", (req, res) => {
