@@ -57,7 +57,7 @@ router.post("/parks", (req, res) => {
         toilets: req.body.toilets,
         exerciseFacilities: req.body.exerciseFacilities,
         petsAllowed: req.body.petsAllowed,
-        //user_id: req.user._id
+        user_id: req.user._id
     }).then(async (created) => {
 
 
