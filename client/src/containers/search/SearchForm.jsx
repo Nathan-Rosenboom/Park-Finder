@@ -18,7 +18,7 @@ function SearchForm() {
               <option>Name</option>
               <option>Address</option>
             </Form.Control>
-            <Form.Control className="formInput" type="text" placeholder="" />
+            <Form.Control className="formInput" type="text" placeholder="Enter Query" />
           </Form.Group>
           <Form.Label>Filter Results</Form.Label>
             <div key="inline-checkbox" className="mb-3">
