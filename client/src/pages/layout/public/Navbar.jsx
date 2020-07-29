@@ -7,8 +7,8 @@ function Navigation(props) {
     <Navbar bg="dark" variant="dark">
     <Navbar.Brand href="#home">Park Finder</Navbar.Brand>
     <Nav className="mr-auto">
-      <Nav.Link href="#home">Login</Nav.Link>
-      <Nav.Link href="#features">Register</Nav.Link>
+      <Nav.Link href="/">Login</Nav.Link>
+      <Nav.Link href="/register">Sign-up</Nav.Link>
     </Nav>
   </Navbar>
     )
