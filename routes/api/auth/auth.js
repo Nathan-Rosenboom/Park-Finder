@@ -7,7 +7,6 @@ const router = express.Router();
 
 router.post('/register', (req, res, next) => {
   const validationErrors = [];
-  // validator is expecting a string
   if (!validator.isEmail(req.body.email || ''))
       validationErrors.push({ msg: "Please enter a valid email address." });
   if (!validator.isLength(req.body.password || '', { min: 8 }))
@@ -100,7 +99,7 @@ router.post('/login',  (req, res, next) => {
 });
 
 router.get('/logout', (req, res) => {
-    console.log('heyyyy');
+    console.log('Logged out');
     req.logout();
     req.session.destroy((err) => {
         if (err){
