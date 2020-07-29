@@ -7,7 +7,6 @@ function Home (props) {
     return (
         <main>
         <PublicMaster/>
-
         <LoginForm/>
         </main>
     )
