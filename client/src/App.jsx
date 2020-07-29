@@ -7,7 +7,7 @@ import "./App.css";
 
 import Home from "./pages/Home";
 //import Register from "./pages/Register";
-import Parks from "./pages/CreatePark";
+import Parks from "./pages/Parks";
 
 function App() {
   return (
