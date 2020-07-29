@@ -50,7 +50,7 @@ function ParkItem(props) {
     return (
 
         <div className="parkItem">
-            <Card classname="resultCard" bg="secondary">
+            <Card className="resultCard" bg="secondary">
             <Card.Title>{props.park.name}</Card.Title>
             <Card.Text>
                 {props.park.description}
