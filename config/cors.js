@@ -1,11 +1,10 @@
 const config = require('./app');
 
 const whitelist = [
-    // config.appUrl,
+    config.appUrl,
     "*",
     "http://localhost:3000",
     "localhost:3000",
-    "https://salty-spire-93839.herokuapp.com"
 ];
 
 module.exports =  {
