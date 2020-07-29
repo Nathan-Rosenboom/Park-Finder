@@ -64,7 +64,7 @@ function LoginForm() {
             type="password"
           />
         </Form.Group>
-        <Button block bssize="large" type="submit">
+        <Button block bssize="large" variant="secondary" type="submit">
           Login
         </Button>
       </Form>
