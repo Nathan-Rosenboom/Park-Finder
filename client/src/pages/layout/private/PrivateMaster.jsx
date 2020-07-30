@@ -9,7 +9,7 @@ function PublicMaster(props) {
     const history = useHistory()
 
     useEffect(() => {
-        axios.get('http://localhost:3001/api/current-user', {
+        axios.get('/api/current-user', {
             withCredentials: true,
         })
             .then((response) => {
