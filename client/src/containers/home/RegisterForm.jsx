@@ -71,7 +71,7 @@ return (
         <Form.Group controlId="passwordCheck" bssize="large">
           <Form.Label>Re-enter Password</Form.Label>
           <Form.Control
-            name="password"
+            name="password_again"
             label="Password"
             onChange={handleChange}
             type="password"
