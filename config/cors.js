@@ -1,4 +1,4 @@
-const config = require('./app');
+const config = require('./app.js');
 
 const whitelist = [
     config.appUrl,
