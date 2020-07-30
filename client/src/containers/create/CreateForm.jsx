@@ -8,124 +8,110 @@ import "./CreateForm.css";
 
 function CreateForm(props) {
 
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
-    const [streetAddress, setStreetAddress] = useState("");
-    const [city, setCity] = useState("");
-    const [state, setState] = useState("");
-    const [playground, setPlayground] = useState("");
-    const [toilets, setToilets] = useState("");
-    const [exerciseFacilities, setExerciseFacilities] = useState("");
-    const [petsAllowed, setPetsAllowed] = useState("");
+  const history = useHistory();
 
-    const handleParkName = (event) => {
-        setName(event.target.value)
+  const [errors, setErrors] = useState([]);
+
+  const [payload, setPayload] = useState({});
+
+  const handleChange = async (event) => {
+      const type = event.target.name;
+
+      setPayload({
+          ...payload,
+          [type]: event.target.value 
+      })
+  }
+
+  const handleCheckbox = async (event) => {
+    const type = event.target.name;
+    if (event.target.value === "on"){
+      event.target.value = true;
     }
-
-    const handleParkDescription = (event) => {
-        setDescription(event.target.value)
+    else {
+      event.target.value = false;
     }
+    setPayload({
+        ...payload,
+        [type]: event.target.value 
+    })
+}
 
-    const handleParkStreetAddress = (event) => {
-        setStreetAddress(event.target.value)
-    }
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    // call api to login
+    axios.post("/api/parks", payload, {
+            withCredentials: true
+        })
+        .then((res) => {
+            history.push("/parks");
+            console.log("Submitted");
 
-    const handleParkCity = (event) => {
-        setCity(event.target.value)
-    }
-
-    const handleParkState = (event) => {
-        setState(event.target.value)
-    }
-
-    const handleParkPlayground = (event) => {
-        setPlayground(event.target.value)
-    }
-
-    const handleParkToilets = (event) => {
-        setToilets(event.target.value)
-    }
-
-    const handleParkExerciseFacilities = (event) => {
-        setExerciseFacilities(event.target.value)
-    }
-
-    const handleParkPetsAllowed = (event) => {
-        setPetsAllowed(event.target.value)
-    }
-
-    const createPark = (event) => {
-        event.preventDefault();
-        axios.post('http://localhost:3001/api/parks', {
-            name,
-            description,
-            streetAddress,
-            city,
-            state,
-            playground,
-            toilets,
-            exerciseFacilities,
-            petsAllowed
-        }).then((response) => {
-            const newPark = response.data.data;
-            props.setParks([
-                newPark,
-                ...props.parks,
-            ])
+        })
+        .catch((err) => {
+            console.log(err.response);
+            const errorMsg = err.response.data.errors(err => err.msg)
+            // failed to register
+            setErrors([...errorMsg]);
         });
-    }
+};
   return (
     <Card className="formCard">
       <Card.Title>Add a Park</Card.Title>
       <Card.Body>
-        <Form onSubmit={createPark}>
+        <Form onSubmit={onSubmit}>
           <Form.Group controlId="CreateForm">
-            <Form.Control onChange={handleParkName} className="formInput" type="text" placeholder="Park Name" />
+            <Form.Control onChange={handleChange} name="name" className="formInput" type="text" placeholder="Park Name" />
           </Form.Group>
           <Form.Group controlId="CreateForm">
-            <Form.Control onChange={handleParkDescription} className="formInput" type="text" placeholder="Description" />
+            <Form.Control onChange={handleChange} name="description" className="formInput" type="text" placeholder="Description" />
           </Form.Group>
           <Form.Group controlId="CreateForm">
-            <Form.Control onChange={handleParkStreetAddress} className="formInput" type="text" placeholder="Street Address" />
+            <Form.Control onChange={handleChange} name="streetAddress" className="formInput" type="text" placeholder="Street Address" />
           </Form.Group>
           <Form.Group controlId="CreateForm">
-            <Form.Control onChange={handleParkCity} className="formInput" type="text" placeholder="City" />
+            <Form.Control onChange={handleChange} name="city" className="formInput" type="text" placeholder="City" />
           </Form.Group>
           <Form.Group controlId="CreateForm">
-            <Form.Control onChange={handleParkState} className="formInput" type="text" placeholder="State" />
+            <Form.Control onChange={handleChange} name="state" className="formInput" type="text" placeholder="State" />
           </Form.Group>
           <Form.Label>Tags</Form.Label>
             <div key="inline-checkbox" className="mb-3">
               <Form.Check
+              name="playground"
                 inline
                 label="Playground"
                 type="checkbox"
                 id="inline-checkbox-1"
-                onChange={handleParkPlayground}
+                onChange={handleCheckbox}
+
               />
               <Form.Check
+              name="petsAllowed"
                 inline
                 label="Pets Allowed"
                 type="checkbox"
                 id="inline-checkbox-2"
-                onChange={handleParkPetsAllowed}
+                onChange={handleCheckbox}
               />
               <Form.Check
+              name="exerciseFacilites"
                 inline
                 label="Exercise Facilities"
                 type="checkbox"
                 id="inline-checkbox-3"
-                onChange={handleParkExerciseFacilities}
+                onChange={handleCheckbox}
               />
               <Form.Check
+              name="toilets"
                 inline
                 label="Toilets"
                 type="checkbox"
                 id="inline-checkbox-4"
-                onChange={handleParkToilets}
+                onChange={handleCheckbox}
               />
             </div>
-          <Button variant="secondary" type="submit">
+          <Button onClick={onSubmit} variant="secondary" type="submit">
             Submit
           </Button>
         </Form>
