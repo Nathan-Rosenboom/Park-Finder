@@ -1,5 +1,5 @@
 const express = require("express");
-const Park = require("../../models/Park");
+const Park = require("../../models/Park.js");
 const router = express.Router();
 
 const loadCommentsAggregate = [
@@ -71,7 +71,7 @@ router.post("/parks", (req, res) => {
         res.json({
             data: created,
         });
-    }).catch(err);
+    });
 });
 
 router.patch("/parks/:id", (req, res) => {

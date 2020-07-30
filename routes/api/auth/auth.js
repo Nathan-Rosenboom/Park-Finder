@@ -1,7 +1,7 @@
 const express = require('express');
-const passport = require('./../../../config/passport');
+const passport = require('./../../../config/passport.js');
 const validator = require('validator');
-const User = require('./../../../models/User');
+const User = require('./../../../models/User.js');
 
 const router = express.Router();
 
@@ -63,11 +63,6 @@ router.post('/register', (req, res, next) => {
 })
 
 router.post('/login',  (req, res, next) => {
-
-
-    // res.json({
-    //     data: req.user
-    // })
 
     passport.authenticate('local', (err, user, info) => {
         console.log({err});
