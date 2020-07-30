@@ -24,7 +24,6 @@ function RegisterForm() {
 
   const onSubmit = async (event) => {
       event.preventDefault();
-      console.log("Submitted");
       if(payload.password !== payload.password_again){
           return setErrors([
               'Passwords do not match!'
@@ -32,12 +31,13 @@ function RegisterForm() {
       }
 
       // call api to login
-      const response = axios
-          .post("http://localhost:3001/api/register", payload, {
+      axios.post("/api/register", payload, {
               withCredentials: true
           })
           .then((res) => {
               history.push("/parks");
+              console.log("Submitted");
+
           })
           .catch((err) => {
               console.log(err.response);
@@ -77,7 +77,7 @@ return (
             type="password"
           />
         </Form.Group>
-        <Button block bssize="large" variant="secondary" type="submit">
+        <Button onClick={onSubmit} block bssize="large" variant="secondary" type="submit">
           Sign-up
         </Button>
       </Form>
