@@ -9,7 +9,7 @@ function ParkContainer(props) {
         const [parks, setParks] = useState([])
     
         useEffect(() => {
-            axios.get('http://localhost:3001/api/parks', {
+            axios.get('/api/parks', {
                 withCredentials: true,
             })
                 .then((response) => {
