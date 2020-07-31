@@ -9,3 +9,14 @@
     max-width: 100vw;
 }
 
+.parkTitle {
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+    .mainCard {
+      width: 100vw;
+    }
+  }
