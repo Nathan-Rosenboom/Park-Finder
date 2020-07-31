@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import "./ParkModal.css"
@@ -48,23 +50,48 @@ function ParkModal(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header className="modalHeader" closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           {props.name}
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <h4></h4>
+      <Modal.Body className="modalBody">
         <p>{props.description}</p>
+        <p className="addressBlock">Address</p>
         <p>
           {props.streetAddress}, {props.city}, {props.state}
         </p>
-        <p><i className="icon" class="fas fa-toilet"></i><i className="icon" class="fas fa-shapes"></i><i className="icon" class="fas fa-dog"></i><i className="icon" class="fas fa-dumbbell"></i></p>
-        <p>
-          <i className={colourClass} class={toiletIcon}></i> <i className={colourClass} class={playgroundIcon}></i> <i className={colourClass} class={petsAllowedIcon}></i> <i className={colourClass} class={exerciseFacilitiesIcon}></i>
-        </p>
+        <Row>
+            <Col className="text-center" xs={3} md={3}>
+            <i className="icon" class="fas fa-toilet"></i>
+            </Col>
+            <Col className="text-center" xs={3} md={3}>
+            <i className="icon" class="fas fa-shapes"></i>
+            </Col>
+            <Col className="text-center" xs={3} md={3}>
+            <i className="icon" class="fas fa-dog"></i>
+            </Col>
+            <Col className="text-center" xs={3} md={3}>
+            <i className="icon" class="fas fa-dumbbell"></i>
+            </Col>
+          </Row>
+          <Row>
+            <Col className="text-center" xs={3} md={3}>
+            <i className={colourClass} class={toiletIcon}></i>
+            </Col>
+            <Col className="text-center" xs={3} md={3}>
+            <i className={colourClass} class={playgroundIcon}></i>
+            </Col>
+            <Col className="text-center" xs={3} md={3}>
+            <i className={colourClass} class={petsAllowedIcon}></i>
+            </Col>
+            <Col className="text-center" xs={3} md={3}>
+            <i className={colourClass} class={exerciseFacilitiesIcon}></i>
+            </Col>
+          </Row>
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className="modalFooter">
+        <p>Park added by</p>
         <Button variant="secondary" onClick={props.onHide}>
           Close
         </Button>
