@@ -2,6 +2,7 @@ import React from "react";
 import PublicMaster from "./layout/public/PublicMaster";
 import LoginForm from "../containers/home/LoginForm";
 import Col from "react-bootstrap/Col";
+import "./Home.css";
 
 function Home (props) {
 
@@ -9,7 +10,7 @@ function Home (props) {
         <main>
         <PublicMaster/>
         <LoginForm/>
-        <Col className><i class="fas fa-search"></i></Col>
+        <Col className="text-center icon"><i class="fas fa-search"></i></Col>
         </main>
     )
 }
