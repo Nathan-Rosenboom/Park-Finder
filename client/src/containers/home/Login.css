@@ -1,4 +1,4 @@
-@media all and (min-width: 480px) {
+
     .Login {
       padding: 60px 0;
       background-color: tomato;
@@ -12,5 +12,10 @@
       margin: 0 auto;
       max-width: 320px;
       font-weight: 600;
+    }
+
+  @media screen and (max-width: 500px) {
+    .Login {
+      width: 100vw;
     }
   }

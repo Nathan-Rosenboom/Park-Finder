@@ -67,6 +67,9 @@ function LoginForm() {
         <Button block bssize="large" variant="secondary" type="submit">
           Login
         </Button>
+        <Button block bssize="large" variant="secondary" type="submit" href="/register">
+          Register
+        </Button>
       </Form>
     </div>
   );
