@@ -1,8 +1,11 @@
 .modalHeader {
     background-color: #343a40;
-    color: white;
+    color: white
 }
 
+.modal-title {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 .modalBody {
     background-color: tomato;
 }
