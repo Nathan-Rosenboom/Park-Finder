@@ -44,6 +44,7 @@ function LoginForm() {
 
   return (
     <div className="Login">
+      <h4 className="header">Discover parks near you</h4>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="email" bssize="large">
           <Form.Label>Email</Form.Label>

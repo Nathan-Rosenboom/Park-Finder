@@ -1,21 +1,23 @@
+.Login {
+  padding: 20px 0px 60px 0px;
+  background-color: tomato;
+  width: 75vw;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
 
-    .Login {
-      padding: 60px 0;
-      background-color: tomato;
-      width: 75vw;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
+.Login form {
+  margin: 0 auto;
+  max-width: 320px;
+  font-weight: 600;
+}
 
-    }
-  
-    .Login form {
-      margin: 0 auto;
-      max-width: 320px;
-      font-weight: 600;
-    }
-
-  @media screen and (max-width: 500px) {
-    .Login {
-      width: 100vw;
-    }
+.header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 500px) {
+  .Login {
+    width: 100vw;
   }
+}
