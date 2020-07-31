@@ -1,0 +1,17 @@
+.footer{
+    height: 40px;
+}
+.gitLink {
+    
+    margin-left: 20px;
+    color: #000;
+}
+
+.footerText {
+    color: rgb(37, 35, 37)!important;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.btn {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
