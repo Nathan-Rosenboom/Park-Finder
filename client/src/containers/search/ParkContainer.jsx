@@ -9,7 +9,19 @@ import "./ParkContainer.css";
 
 function ParkContainer(props) {
   const [parks, setParks] = useState([]);
-  const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("");
+  const [results, setResults] = useState([])
+
+  const searchData = (parks) => {
+    let userSearch = parks;
+    if (filter === "") {
+        return userSearch;
+    }
+    let searchInput = filter.toLowerCase().trim();
+    let searchResult = userSearch.filter((park) => park.name.toLowerCase().includes(searchInput) || park.streetAddress.toLowerCase().includes(searchInput));
+    return searchResult;
+  }
+
   useEffect(() => {
     axios
       .get("/api/parks", {
@@ -18,6 +30,8 @@ function ParkContainer(props) {
       .then((response) => {
         setParks(response.data.data);
         console.log(response.data.data);
+        let parkdata = response.data.data
+        return parkdata
       })
       .catch((err) => {
         console.log({ err });
@@ -25,9 +39,6 @@ function ParkContainer(props) {
         }
       });
   }, []);
-  const filteredParks = parks.filter((park) => {
-    return park.name.toLowerCase() === search;
-  });
 
   return (
     <div className="park">
@@ -38,7 +49,7 @@ function ParkContainer(props) {
             <Form.Group controlId="SearchForm">
               <Form.Label>Search for Park:</Form.Label>
               <Form.Control
-                onChange={(event) => setSearch(event.target.value)}
+                onChange={(event) => setFilter(event.target.value)}
                 className="formInput"
                 type="text"
                 placeholder="Enter Query"
@@ -79,7 +90,7 @@ function ParkContainer(props) {
       </Card>
       <Card bsPrefix="mainCard">
         <Card.Title className="parkTitle">Parks</Card.Title>
-        {parks.map((park, index) => (
+        {searchData(parks).map((park, index) => (
           <ParkItem
             className="parkItem"
             parkIndex={index}
