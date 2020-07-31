@@ -20,7 +20,6 @@ function App() {
           <Route exact path="/create" component={Create} />
           <Route exact path="/parks" component={Parks} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/park" component={Park} />
         </Switch> 
       </GlobalStore.GlobalProvider>
     </Router>
