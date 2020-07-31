@@ -9,7 +9,6 @@ import Home from "./pages/Home.jsx";
 import Parks from "./pages/Parks.jsx";
 import Create from "./pages/Create.jsx";
 import Register from "./pages/Register.jsx";
-import Park from "./pages/Park.jsx";
 
 function App() {
   return (
