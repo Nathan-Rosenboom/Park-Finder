@@ -9,3 +9,9 @@
 .formInput{
     margin-top: 10px;
 }
+
+.formTitle {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 0px;
+}

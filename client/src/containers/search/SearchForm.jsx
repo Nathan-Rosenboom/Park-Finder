@@ -1,23 +1,20 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import axios from "axios";
 import "./SearchForm.css";
 
-function SearchForm() {
+function SearchForm(props) {
+
+  
+
   return (
     <Card className="formCard">
-      <Card.Title>Search</Card.Title>
+      <Card.Title className="formTitle">Search</Card.Title>
       <Card.Body>
         <Form>
           <Form.Group controlId="SearchForm">
-            <Form.Label>Search for park by:</Form.Label>
-            <Form.Control as="select">
-              <option>Name</option>
-              <option>Address</option>
-            </Form.Control>
+            <Form.Label>Search for Park:</Form.Label>
             <Form.Control className="formInput" type="text" placeholder="Enter Query" />
           </Form.Group>
           <Form.Label>Filter Results</Form.Label>
