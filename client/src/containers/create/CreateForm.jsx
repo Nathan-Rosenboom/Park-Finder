@@ -56,7 +56,7 @@ function CreateForm(props) {
   };
   return (
     <Card className="formCard">
-      <Card.Title>Add a Park</Card.Title>
+      <Card.Title className="formTitle">Add a Park</Card.Title>
       <Card.Body>
         <Form onSubmit={onSubmit}>
           <Form.Group controlId="CreateForm">

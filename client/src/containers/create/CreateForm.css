@@ -1,3 +1,6 @@
+.formTitle {
+  text-align: center;
+}
 .formCard {
     background-color: tomato;
     border-top-left-radius: 0px;
