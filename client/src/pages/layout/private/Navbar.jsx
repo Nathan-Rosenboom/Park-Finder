@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import axios from "axios";
+import "./Navbar.css";
 
 function Navigation(props) {
 
@@ -14,7 +15,7 @@ function Navigation(props) {
         })
 }
     return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar className="topNav"bg="dark" variant="dark">
     <Navbar.Brand href="#home">Park Finder</Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link href="/parks">Search</Nav.Link>

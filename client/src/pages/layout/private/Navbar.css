@@ -1,0 +1,10 @@
+.topNav{
+    padding: 8px;
+    width: 75vw;
+}
+
+@media screen and (max-width: 500px) {
+    .topNav {
+      width: 100vw;
+    }
+  }
