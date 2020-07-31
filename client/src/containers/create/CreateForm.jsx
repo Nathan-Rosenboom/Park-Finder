@@ -46,6 +46,7 @@ function CreateForm(props) {
         .then((res) => {
             history.push("/parks");
             console.log("Submitted");
+            alert("park added successfuly")
 
         })
         .catch((err) => {
