@@ -26,6 +26,10 @@
   padding-right: 10px;
 }
 
+p {
+  margin-bottom: 0.25rem;
+}
+
 @media screen and (max-width: 500px) {
   .parkItem {
     width: 100vw;
