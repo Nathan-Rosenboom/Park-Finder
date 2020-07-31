@@ -127,7 +127,7 @@ function CreateForm(props) {
               onChange={handleCheckbox}
             />
             <Form.Check
-              name="exerciseFacilites"
+              name="exerciseFacilities"
               inline
               label="Exercise Facilities"
               type="checkbox"
