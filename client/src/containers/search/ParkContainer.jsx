@@ -21,7 +21,7 @@ function ParkContainer(props) {
     let searchResult = userSearch.filter((park) => park.name.toLowerCase().includes(searchInput) || park.streetAddress.toLowerCase().includes(searchInput));
     return searchResult;
   }
-
+    
   useEffect(() => {
     axios
       .get("/api/parks", {
@@ -82,14 +82,11 @@ function ParkContainer(props) {
                 id="inline-checkbox-4"
               />
             </div>
-            <Button variant="secondary" type="submit">
-              Search
-            </Button>
           </Form>
         </Card.Body>
       </Card>
       <Card bsPrefix="mainCard">
-        <Card.Title className="parkTitle">Parks</Card.Title>
+  <Card.Title className="parkTitle">Parks for you</Card.Title>
         {searchData(parks).map((park, index) => (
           <ParkItem
             className="parkItem"
