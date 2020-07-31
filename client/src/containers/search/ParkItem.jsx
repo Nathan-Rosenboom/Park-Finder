@@ -1,50 +1,11 @@
 import React from 'react';
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-
 import ParkModal from "./ParkModal";
 import "./ParkItem.css";
 
 function ParkItem(props) {
     const [modalShow, setModalShow] = React.useState(false);
-    let toilets = props.park.toilets.toString();
-  let playground = props.park.playground.toString();
-  let exerciseFacilities = props.park.exerciseFacilities.toString();
-  let petsAllowed = props.park.petsAllowed.toString();
-  let colourClass = "red";
-  let toiletIcon = "";
-  if (toilets === "true") {
-    toiletIcon = "far fa-check-circle";
-    colourClass = "green"
-  } else {
-    toiletIcon = "far fa-times-circle";
-  }
-
-  let playgroundIcon = "";
-  if (playground === "true") {
-    playgroundIcon = "far fa-check-circle";
-    colourClass = "green"
-  } else {
-    playgroundIcon = "far fa-times-circle";
-  }
-
-  let petsAllowedIcon = "";
-  if (petsAllowed === "true") {
-    petsAllowedIcon = "far fa-check-circle";
-    colourClass = "green"
-  } else {
-    petsAllowedIcon = "far fa-times-circle";
-  }
-
-  let exerciseFacilitiesIcon = "";
-  if (exerciseFacilities === "true") {
-    exerciseFacilitiesIcon = "far fa-check-circle";
-    colourClass = "green"
-  } else {
-    exerciseFacilitiesIcon = "far fa-times-circle";
-  }
     
     return (
 

@@ -2,15 +2,12 @@ import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import axios from "axios";
 import ParkItem from "./ParkItem";
-import SearchForm from "./SearchForm";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import "./ParkContainer.css";
 
 function ParkContainer(props) {
   const [parks, setParks] = useState([]);
   const [filter, setFilter] = useState("");
-  const [results, setResults] = useState([])
 
   const searchData = (parks) => {
     let userSearch = parks;
@@ -47,7 +44,6 @@ function ParkContainer(props) {
         <Card.Body>
           <Form>
             <Form.Group controlId="SearchForm">
-              <Form.Label>Search for Park:</Form.Label>
               <Form.Control
                 onChange={(event) => setFilter(event.target.value)}
                 className="formInput"
