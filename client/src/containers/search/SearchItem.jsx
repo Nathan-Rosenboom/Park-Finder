@@ -1,13 +1,9 @@
-import React, { useState } from 'react';
-import { useHistory } from "react-router-dom";
+import React from 'react';
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import axios from "axios";
-import "./ParkItem.css";
 import Form from "react-bootstrap/Form";
+
 function SearchItem(props) {
-    const id = props.park._id
-    axios.get(`/api/parks?park_id=${id}`)
+  
     return (
 
         <div className="parkItem">
