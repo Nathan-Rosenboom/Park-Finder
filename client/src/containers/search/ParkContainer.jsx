@@ -15,7 +15,7 @@ function ParkContainer(props) {
         return userSearch;
     }
     let searchInput = filter.toLowerCase().trim();
-    let searchResult = userSearch.filter((park) => park.name.toLowerCase().includes(searchInput) || park.streetAddress.toLowerCase().includes(searchInput));
+    let searchResult = userSearch.filter((park) => park.name.toLowerCase().includes(searchInput) || park.streetAddress.toLowerCase().includes(searchInput) || park.city.toLowerCase().includes(searchInput));
     return searchResult;
   }
     
@@ -51,34 +51,7 @@ function ParkContainer(props) {
                 placeholder="Enter Query"
               />
             </Form.Group>
-            <Form.Label>Filter Results</Form.Label>
-            <div key="inline-checkbox" className="mb-3">
-              <Form.Check
-                inline
-                label="Playground"
-                type="checkbox"
-                id="inline-checkbox-1"
-              />
-              <Form.Check
-                inline
-                label="Pets Allowed"
-                type="checkbox"
-                id="inline-checkbox-2"
-              />
-              <Form.Check
-                inline
-                label="Exercise Facilities"
-                type="checkbox"
-                id="inline-checkbox-3"
-              />
-              <Form.Check
-                inline
-                label="Toilets"
-                type="checkbox"
-                id="inline-checkbox-4"
-              />
-            </div>
-          </Form>
+            </Form>
         </Card.Body>
       </Card>
       <Card bsPrefix="mainCard">
